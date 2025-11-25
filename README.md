@@ -28,6 +28,7 @@ via NVIDIA Omniverse.
 * edit `extras/CMakeLists.txt` to include g4 directory
 * build plugin 
   * `terminal> python build_scripts/build_usd.py ../openusd-build/`
+  * `terminal> python build_scripts/build_usd.py ../openusd-build/ --onettb` (for mac?)
 * add plugin directory to python path
   * `terminal> export $PYTHONPATH=$PYTHONPATH:<PATH_TO_USD_BUILD>/lib/python`
 * test in python
@@ -36,7 +37,7 @@ via NVIDIA Omniverse.
 
 ### Regenerate schema
 
-* `usdGenSchema g4.schema .`
+* `usdGenSchema g4.usda .`
 
 ### Add listeners in usdview
 
