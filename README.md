@@ -24,7 +24,7 @@ via NVIDIA Omniverse.
 * Move to openusd directory 
   * `terminal> cd openusd`
 * Link g4omniverse schema to extras directory 
-  * `terminal> ln -s ../g4omniverse/schema openusd/extras/g4`
+  * `terminal> ln -s ../g4usd-schema/schema openusd/extras/g4`
 * edit `extras/CMakeLists.txt` to include g4 directory
 * build plugin 
   * `terminal> python build_scripts/build_usd.py ../openusd-build/`
