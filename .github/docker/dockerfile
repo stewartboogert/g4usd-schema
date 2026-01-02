@@ -8,7 +8,7 @@ ENTRYPOINT ["/bin/bash"]
 WORKDIR /omniverse
 
 RUN apt update		&&\
-    apt -y install git python3 cmake build-essential python3.12-venv pip
+    apt -y install git python3 cmake build-essential python3.12-venv pip xorg-dev libglib2.0-dev
 
 RUN python3 -m venv /omniverse/venv &&\
     source /omniverse/venv/bin/activate &&\
@@ -17,5 +17,8 @@ RUN python3 -m venv /omniverse/venv &&\
 RUN git clone https://github.com/PixarAnimationStudios/OpenUSD.git &&\
     mkdir OpenUSD-build &&\
     source /omniverse/venv/bin/activate &&\
-    python3 OpenUSD/build_scripts/build_usd.py ./OpenUSD-build/ -j1
+    pip install ipython &&\
+    python3 OpenUSD/build_scripts/build_usd.py ./OpenUSD-build/ -j1 &&\
+    echo export export PYTHONPATH=/omniverse/OpenUSD-build/lib/python/ >> ~/.bashrc &&\
+    echo export export PATH=$PATH:/omniverse/OpenUSD-build/bin/ >> ~/.backrc 
 
